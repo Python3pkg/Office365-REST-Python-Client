@@ -14,4 +14,4 @@ class TestListItem(SPTestCase):
         item_properties = {'Title': 'New Task', '__metadata': {'type': 'SP.Data.TasksListItem'}}
         item = self.target_list.add_item(item_properties)
         self.context.execute_query()
-        print "List item '{0}' has been created.".format(item.properties["Title"])
+        print("List item '{0}' has been created.".format(item.properties["Title"]))

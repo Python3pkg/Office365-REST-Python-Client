@@ -10,7 +10,7 @@ class WebCollection(ClientObjectCollection):
     def add(self, web_creation_information):
         web_creation_information._include_metadata = self.include_metadata
         payload = web_creation_information.payload
-        from web import Web
+        from .web import Web
         web = Web(self.context)
         qry = ClientQuery(self.url + "/add", ActionType.PostMethod, payload)
         self.context.add_query(qry, web)

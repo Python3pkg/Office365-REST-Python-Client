@@ -1,9 +1,8 @@
 from abc import ABCMeta, abstractproperty
 
 
-class ResourcePath(object):
+class ResourcePath(object, metaclass=ABCMeta):
     """OData resource path"""
-    __metaclass__ = ABCMeta
 
     def __init__(self, context, parent=None):
         self._parent = parent

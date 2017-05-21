@@ -1,4 +1,4 @@
-import urllib
+import urllib.request, urllib.parse, urllib.error
 
 from client.office365.runtime.client_object import ClientObject
 from client.office365.runtime.resource_path_entry import ResourcePathEntry
@@ -13,7 +13,7 @@ class File(ClientObject):
 
     @staticmethod
     def save_binary(ctx, server_relative_url, content):
-        server_relative_url = urllib.quote(server_relative_url)
+        server_relative_url = urllib.parse.quote(server_relative_url)
         url = "{0}web/getfilebyserverrelativeurl('{1}')/\$value".format(ctx.service_root_url, server_relative_url)
         request = RequestOptions(url)
         request.method = HttpMethod.Post
@@ -23,7 +23,7 @@ class File(ClientObject):
 
     @staticmethod
     def open_binary(ctx, server_relative_url):
-        server_relative_url = urllib.quote(server_relative_url)
+        server_relative_url = urllib.parse.quote(server_relative_url)
         url = "{0}web/getfilebyserverrelativeurl('{1}')/\$value".format(ctx.service_root_url, server_relative_url)
         request = RequestOptions(url)
         request.method = HttpMethod.Get

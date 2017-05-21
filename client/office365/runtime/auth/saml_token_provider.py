@@ -1,5 +1,5 @@
 import os
-import urlparse
+import urllib.parse
 from xml.etree import ElementTree
 import requests
 import requests.utils
@@ -42,7 +42,7 @@ class SamlTokenProvider(BaseTokenProvider, client.office365.logger.LoggerContext
 
         try:
             logger.debug("Parsing URL")
-            url = urlparse.urlparse(self.url)
+            url = urllib.parse.urlparse(self.url)
             options = {
                 'username': self.username,
                 'password': self.password,

@@ -1,4 +1,4 @@
-import urllib
+import urllib.request, urllib.parse, urllib.error
 
 from client.office365.runtime.client_object import ClientObject
 from client.office365.runtime.resource_path_service_operation import ResourcePathServiceOperation

@@ -13,7 +13,7 @@ class ODataPathParser(object):
         if method_parameters:
             if isinstance(method_parameters, dict):
                 url += ','.join(['%s=%s' % (key, ODataPathParser.encode_method_value(value)) for (key, value) in
-                                 method_parameters.items()])
+                                 list(method_parameters.items())])
             else:
                 url += ','.join(['%s' % (ODataPathParser.encode_method_value(value)) for (i, value) in
                                  enumerate(method_parameters)])
@@ -22,7 +22,7 @@ class ODataPathParser(object):
 
     @staticmethod
     def encode_method_value(value):
-        if isinstance(value, basestring):
+        if isinstance(value, str):
             value = "'{0}'".format(value)
         elif isinstance(value, bool):
             value = str(value).lower()

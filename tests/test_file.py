@@ -1,6 +1,6 @@
 import os
 import shutil
-import urllib
+import urllib.request, urllib.parse, urllib.error
 import requests
 
 from client.office365.runtime.utilities.request_options import RequestOptions

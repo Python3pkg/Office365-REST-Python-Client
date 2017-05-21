@@ -1,9 +1,8 @@
 from abc import abstractmethod, ABCMeta
 
 
-class BaseTokenProvider(object):
+class BaseTokenProvider(object, metaclass=ABCMeta):
     """ Base Token provide"""
-    __metaclass__ = ABCMeta
 
     @abstractmethod
     def acquire_token(self):

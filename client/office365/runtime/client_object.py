@@ -65,7 +65,7 @@ class ClientObject(object):
 
     def query_options_to_url(self):
         """Convert query options to url"""
-        return '&'.join(['$%s=%s' % (key, value) for (key, value) in self.query_options.items()])
+        return '&'.join(['$%s=%s' % (key, value) for (key, value) in list(self.query_options.items())])
 
     def set_property(self, name, value, persist_changes=True):
         """Set resource property"""
@@ -113,10 +113,10 @@ class ClientObject(object):
         if self.include_metadata:
             self.ensure_metadata_type(payload)
         else:
-            payload = dict((k, v) for k, v in payload.iteritems() if k != "__metadata")
+            payload = dict((k, v) for k, v in payload.items() if k != "__metadata")
         return payload
 
     def from_json(self, payload):
         #json_format = self.context.json_format
-        self._properties = dict((k, v) for k, v in payload.iteritems()
+        self._properties = dict((k, v) for k, v in payload.items()
                                 if k != '__metadata')

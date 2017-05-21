@@ -1,6 +1,6 @@
 from client.office365.runtime.auth.authentication_context import AuthenticationContext
 from client.office365.sharepoint.client_context import ClientContext
-from settings import settings
+from .settings import settings
 
 
 def read_groups(ctx):
@@ -10,7 +10,7 @@ def read_groups(ctx):
     ctx.execute_query()
 
     for group in groups:
-        print "Group title: {0}".format(group.properties["Title"])
+        print("Group title: {0}".format(group.properties["Title"]))
 
 
 def crud_group(ctx):
@@ -20,19 +20,19 @@ def crud_group(ctx):
     groupProperties = {'__metadata': {'type': 'SP.Group'}, 'Title': groupName}
     group = groups.add(groupProperties)
     ctx.execute_query()
-    print "Group : {0} has been created".format(group.properties["Title"])
+    print("Group : {0} has been created".format(group.properties["Title"]))
 
     "Retrieve group users"
     users = group.users
     ctx.load(users)
     ctx.execute_query()
     for user in users:
-        print "User : {0}".format(user.properties["Title"])
+        print("User : {0}".format(user.properties["Title"]))
 
     "Remove a group"
     groups.remove_by_login_name(groupName)
     ctx.execute_query()
-    print "Group : {0} has been deleted".format(groupName)
+    print("Group : {0} has been deleted".format(groupName))
 
 
 if __name__ == '__main__':
@@ -44,4 +44,4 @@ if __name__ == '__main__':
         #crudGroup(ctx)
 
     else:
-        print ctxAuth.get_last_error()
+        print(ctxAuth.get_last_error())

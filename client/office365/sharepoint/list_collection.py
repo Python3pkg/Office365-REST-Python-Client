@@ -2,7 +2,7 @@ from client.office365.runtime.action_type import ActionType
 from client.office365.runtime.client_object_collection import ClientObjectCollection
 from client.office365.runtime.client_query import ClientQuery
 from client.office365.runtime.resource_path_service_operation import ResourcePathServiceOperation
-from list import List
+from .list import List
 
 
 class ListCollection(ClientObjectCollection):
