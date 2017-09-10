@@ -3,9 +3,9 @@ import shutil
 import urllib.request, urllib.parse, urllib.error
 import requests
 
-from client.office365.runtime.utilities.request_options import RequestOptions
-from client.office365.sharepoint.file import File
-from client.office365.sharepoint.file_creation_information import FileCreationInformation
+from office365.runtime.utilities.request_options import RequestOptions
+from office365.sharepoint.file import File
+from office365.sharepoint.file_creation_information import FileCreationInformation
 from tests.sharepoint_case import SPTestCase
 
 
@@ -38,7 +38,8 @@ class TestFile(SPTestCase):
     def test_3_download_file(self):
         """Test file upload operation"""
         response = File.open_binary(self.context, self.report_file_url)
-        self.assertEqual(response.content, '"' + self.report_content + '"')
+        str_output_content = response.content.decode("utf-8")
+        self.assertEqual(str_output_content, '"{0}"'.format(self.report_content))
 
     def test_4_download_file_alt(self):
         """Test file download operation"""

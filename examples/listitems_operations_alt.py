@@ -1,6 +1,6 @@
-from client.office365.runtime.auth.authentication_context import AuthenticationContext
-from client.office365.runtime.client_request import ClientRequest
-from .settings import settings
+from examples.settings import settings
+from office365.runtime.auth.authentication_context import AuthenticationContext
+from office365.runtime.client_request import ClientRequest
 
 
 def read_list_items(web_url, ctx_auth, list_title):

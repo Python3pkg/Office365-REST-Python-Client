@@ -11,7 +11,7 @@ def read(fname):
 
 setup(
     name="Office365-REST-Python-Client",
-    version="1.1.0",
+    version="2.1.0",
     author="Vadim Gremyachev",
     author_email="vvgrem@gmail.com",
     maintainer="Konrad Gądek",
@@ -31,7 +31,7 @@ setup(
     ],
     packages=setuptools.find_packages(),
     package_data={
-        'client': ["office365/runtime/auth/SAML.xml"]
+        'office365': ["runtime/auth/SAML.xml"]
     }
 )
 

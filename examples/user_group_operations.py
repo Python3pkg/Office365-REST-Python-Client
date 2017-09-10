@@ -1,6 +1,6 @@
-from client.office365.runtime.auth.authentication_context import AuthenticationContext
-from client.office365.sharepoint.client_context import ClientContext
-from .settings import settings
+from examples.settings import settings
+from office365.runtime.auth.authentication_context import AuthenticationContext
+from office365.sharepoint.client_context import ClientContext
 
 
 def read_groups(ctx):
@@ -27,7 +27,7 @@ def crud_group(ctx):
     ctx.load(users)
     ctx.execute_query()
     for user in users:
-        print("User : {0}".format(user.properties["Title"]))
+        print('User : {0}'.format(user.properties["Title"]))
 
     "Remove a group"
     groups.remove_by_login_name(groupName)
@@ -41,7 +41,7 @@ if __name__ == '__main__':
         ctx = ClientContext(settings['url'], ctxAuth)
 
         read_groups(ctx)
-        #crudGroup(ctx)
+        # crudGroup(ctx)
 
     else:
         print(ctxAuth.get_last_error())

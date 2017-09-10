@@ -1,6 +1,6 @@
-from client.office365.runtime.auth.authentication_context import AuthenticationContext
-from client.office365.sharepoint.client_context import ClientContext
-from .settings import settings
+from examples.settings import settings
+from office365.runtime.auth.authentication_context import AuthenticationContext
+from office365.sharepoint.client_context import ClientContext
 
 listTitle = "Tasks"
 
@@ -17,7 +17,7 @@ def read_list_items():
 
 
 def filter_list_items():
-    print("ODATA query against list items example...")
+    print("OData query against list items example...")
     list_object = ctx.web.lists.get_by_title(listTitle)
     items = list_object.get_items().top(1).select("Id,Title")
     ctx.load(items)
